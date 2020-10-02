@@ -1,5 +1,5 @@
 FROM pulp/pulp-fedora31
 
-RUN useradd -u -g admin root
+RUN useradd admin; usermod -aG wheel admin;
 
 USER admin
