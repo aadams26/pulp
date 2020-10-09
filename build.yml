@@ -1,0 +1,126 @@
+kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: pulp
+    openshift.io/build.number: '1'
+    openshift.io/build.pod-name: pulp-1-build
+  selfLink: /apis/build.openshift.io/v1/namespaces/pulp/builds/pulp-1
+  resourceVersion: '23989141'
+  name: pulp-1
+  uid: a892a732-b707-4039-a780-0d8a97a71fa3
+  creationTimestamp: '2020-10-09T19:29:30Z'
+  namespace: pulp
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: pulp
+      uid: e0216078-6dfb-43d6-ae3b-65ee722b46d0
+      controller: true
+  labels:
+    app: pulp
+    app.kubernetes.io/component: pulp
+    app.kubernetes.io/instance: pulp
+    buildconfig: pulp
+    openshift.io/build-config.name: pulp
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'pulp:latest'
+    pushSecret:
+      name: builder-dockercfg-vz8f8
+  resources: {}
+  triggeredBy:
+    - message: Build configuration change
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: >-
+          pulp/pulp-fedora31@sha256:4214c936aec74303b8144158cb2259c9f8e4cda45a27c031eb82b52769e75558
+  postCommit: {}
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/aadams26/pulp.git'
+  revision:
+    type: Git
+    git:
+      commit: 8111f7b9436cbf5b33bd37569c8b7f34c632ef61
+      author:
+        name: Arielle Adams
+        email: arielle.adams@pacxa.com
+      committer:
+        name: Arielle Adams
+        email: arielle.adams@pacxa.com
+      message: update dockerfile
+status:
+  output: {}
+  config:
+    kind: BuildConfig
+    namespace: pulp
+    name: pulp
+  reason: DockerBuildFailed
+  message: Dockerfile build strategy has failed.
+  outputDockerImageReference: 'image-registry.openshift-image-registry.svc:5000/pulp/pulp:latest'
+  duration: 159000000000
+  startTimestamp: '2020-10-09T19:29:30Z'
+  stages:
+    - name: FetchInputs
+      startTime: '2020-10-09T19:29:41Z'
+      durationMilliseconds: 2036
+      steps:
+        - name: FetchGitSource
+          startTime: '2020-10-09T19:29:41Z'
+          durationMilliseconds: 2036
+    - name: PullImages
+      startTime: '2020-10-09T19:29:46Z'
+      durationMilliseconds: 138364
+      steps:
+        - name: PullBaseImage
+          startTime: '2020-10-09T19:29:46Z'
+          durationMilliseconds: 138364
+    - name: Build
+      startTime: '2020-10-09T19:32:04Z'
+      durationMilliseconds: 4246
+      steps:
+        - name: DockerBuild
+          startTime: '2020-10-09T19:32:04Z'
+          durationMilliseconds: 4246
+  conditions:
+    - type: New
+      status: 'False'
+      lastUpdateTime: '2020-10-09T19:29:30Z'
+      lastTransitionTime: '2020-10-09T19:29:30Z'
+    - type: Pending
+      status: 'False'
+      lastUpdateTime: '2020-10-09T19:29:35Z'
+      lastTransitionTime: '2020-10-09T19:29:35Z'
+    - type: Running
+      status: 'False'
+      lastUpdateTime: '2020-10-09T19:32:09Z'
+      lastTransitionTime: '2020-10-09T19:32:09Z'
+    - type: Failed
+      status: 'True'
+      lastUpdateTime: '2020-10-09T19:32:09Z'
+      lastTransitionTime: '2020-10-09T19:32:09Z'
+      reason: DockerBuildFailed
+      message: Dockerfile build strategy has failed.
+  logSnippet: >-
+    /bin/sh: hostname: command not found
+
+    /bin/sh: settings/settings.py: No such file or directory
+
+    subprocess exited with status 1
+
+    subprocess exited with status 1
+
+    error: build error: error building at STEP "RUN echo
+    "CONT...AUTH_DISABLED=True" >> settings/settings.py": exit status 1
+  completionTimestamp: '2020-10-09T19:32:09Z'
+  phase: Failed

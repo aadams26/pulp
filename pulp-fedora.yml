@@ -1,0 +1,78 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/image.dockerRepositoryCheck: '2020-10-09T19:29:30Z'
+  selfLink: /apis/image.openshift.io/v1/namespaces/pulp/imagestreams/pulp-fedora31
+  resourceVersion: '23987933'
+  name: pulp-fedora31
+  uid: ce665a07-6c9b-4483-a358-dc479a204efe
+  creationTimestamp: '2020-10-09T19:29:28Z'
+  generation: 2
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2020-10-09T19:29:28Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:tags':
+            .: {}
+            'k:{"name":"latest"}':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/imported-from': {}
+              'f:from':
+                .: {}
+                'f:kind': {}
+                'f:name': {}
+              'f:generation': {}
+              'f:importPolicy': {}
+              'f:name': {}
+              'f:referencePolicy':
+                .: {}
+                'f:type': {}
+  namespace: pulp
+  labels:
+    app: pulp
+    app.kubernetes.io/component: pulp
+    app.kubernetes.io/instance: pulp
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: latest
+      annotations:
+        openshift.io/imported-from: pulp/pulp-fedora31
+      from:
+        kind: DockerImage
+        name: pulp/pulp-fedora31
+      generation: 2
+      importPolicy: {}
+      referencePolicy:
+        type: Source
+status:
+  dockerImageRepository: 'image-registry.openshift-image-registry.svc:5000/pulp/pulp-fedora31'
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.openshift.dhsie.hawaii.gov/pulp/pulp-fedora31
+  tags:
+    - tag: latest
+      items:
+        - created: '2020-10-09T19:29:30Z'
+          dockerImageReference: >-
+            pulp/pulp-fedora31@sha256:4214c936aec74303b8144158cb2259c9f8e4cda45a27c031eb82b52769e75558
+          image: >-
+            sha256:4214c936aec74303b8144158cb2259c9f8e4cda45a27c031eb82b52769e75558
+          generation: 2

@@ -1,0 +1,39 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  selfLink: /apis/image.openshift.io/v1/namespaces/pulp/imagestreams/pulp
+  resourceVersion: '23987891'
+  name: pulp
+  uid: dde69083-a912-47be-8cab-1ea770926126
+  creationTimestamp: '2020-10-09T19:29:28Z'
+  generation: 1
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2020-10-09T19:29:28Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+  namespace: pulp
+  labels:
+    app: pulp
+    app.kubernetes.io/component: pulp
+    app.kubernetes.io/instance: pulp
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: 'image-registry.openshift-image-registry.svc:5000/pulp/pulp'
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.openshift.dhsie.hawaii.gov/pulp/pulp

@@ -1,0 +1,96 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  selfLink: /apis/build.openshift.io/v1/namespaces/pulp/buildconfigs/pulp
+  resourceVersion: '23987935'
+  name: pulp
+  uid: e0216078-6dfb-43d6-ae3b-65ee722b46d0
+  creationTimestamp: '2020-10-09T19:29:28Z'
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2020-10-09T19:29:28Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:output':
+            'f:to':
+              .: {}
+              'f:kind': {}
+              'f:name': {}
+          'f:runPolicy': {}
+          'f:source':
+            'f:git':
+              .: {}
+              'f:uri': {}
+            'f:type': {}
+          'f:strategy':
+            'f:dockerStrategy':
+              .: {}
+              'f:from':
+                .: {}
+                'f:kind': {}
+                'f:name': {}
+            'f:type': {}
+    - manager: openshift-apiserver
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2020-10-09T19:29:30Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:triggers': {}
+        'f:status':
+          'f:lastVersion': {}
+  namespace: pulp
+  labels:
+    app: pulp
+    app.kubernetes.io/component: pulp
+    app.kubernetes.io/instance: pulp
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'pulp:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'pulp-fedora31:latest'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/aadams26/pulp.git'
+  triggers:
+    - type: GitHub
+      github:
+        secret: Y53mYGqJcoc0B2bLPH_B
+    - type: Generic
+      generic:
+        secret: ABpvCLgSVGBFKScozf3u
+    - type: ConfigChange
+    - type: ImageChange
+      imageChange:
+        lastTriggeredImageID: >-
+          pulp/pulp-fedora31@sha256:4214c936aec74303b8144158cb2259c9f8e4cda45a27c031eb82b52769e75558
+  runPolicy: Serial
+status:
+  lastVersion: 1
