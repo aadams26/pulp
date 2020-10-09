@@ -1,5 +1,7 @@
 FROM centos/python-36-centos7
 
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+
 # # Create and run as pulp user
 # RUN groupadd pulp; \
 #     useradd -M -g pulp pulp; \
