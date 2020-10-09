@@ -1,0 +1,74 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/image.dockerRepositoryCheck: '2020-10-08T19:51:52Z'
+  selfLink: /apis/image.openshift.io/v1/namespaces/pulp/imagestreams/pulp
+  resourceVersion: '23321020'
+  name: pulp
+  uid: a6fd6566-8214-4311-ae68-82e91e1ab77e
+  creationTimestamp: '2020-10-08T19:51:51Z'
+  generation: 2
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2020-10-08T19:51:51Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:tags':
+            .: {}
+            'k:{"name":"latest"}':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/imported-from': {}
+              'f:from':
+                .: {}
+                'f:kind': {}
+                'f:name': {}
+              'f:generation': {}
+              'f:importPolicy': {}
+              'f:name': {}
+              'f:referencePolicy':
+                .: {}
+                'f:type': {}
+  namespace: pulp
+  labels:
+    app: pulp
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: latest
+      annotations:
+        openshift.io/imported-from: pulp/pulp-fedora31
+      from:
+        kind: DockerImage
+        name: pulp/pulp-fedora31
+      generation: 2
+      importPolicy: {}
+      referencePolicy:
+        type: Source
+status:
+  dockerImageRepository: 'image-registry.openshift-image-registry.svc:5000/pulp/pulp'
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.openshift.dhsie.hawaii.gov/pulp/pulp
+  tags:
+    - tag: latest
+      items:
+        - created: '2020-10-08T19:51:52Z'
+          dockerImageReference: >-
+            pulp/pulp-fedora31@sha256:c22eb5a66dd0e8814d10fbedfbbccd5daf8cef8f241362897f3e88133ef2d224
+          image: >-
+            sha256:c22eb5a66dd0e8814d10fbedfbbccd5daf8cef8f241362897f3e88133ef2d224
+          generation: 2
