@@ -32,5 +32,3 @@ USER 1001
 # RUN export PULP_SETTINGS=/etc/pulp/settings.py; \
 #     chmod 644 /etc/pulp/settings.py; \
 #     chown pulp:pulp /etc/pulp/settings.py;
-
-ENTRYPOINT ["tail", "-f", "/dev/null"]
